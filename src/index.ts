@@ -75,9 +75,26 @@ client.on('ready', () => {
     console.log('Client is ready!');
 });
 
-client.on('message', (message:any) => {
+client.on('message', async (message:any) => {
     if(message.body === '#ping') {
         message.reply('pong');
+    }
+    if(message.body === '#s'){
+
+        let chat = await message.getChat();
+
+        if (message.hasQuotedMsg) message = await message.getQuotedMessage();
+        
+        if (message.hasMedia) {
+            var media = await message.downloadMedia();
+            if (media.mimetype == "video/mp4") {
+                return chat.sendMessage(media, {
+                    sendMediaAsSticker: true,
+                    stickerName: "WesleyBot",
+                    stickerAuthor: "WesleyBot",
+                });
+            } 
+        }
     }
 });
  
