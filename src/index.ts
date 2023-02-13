@@ -1,5 +1,6 @@
 import bodyParser from "body-parser";
 import express from "express";
+import ffmpeg from "@ffmpeg-installer/ffmpeg";
 const qrcode = require('qrcode');
 const { Client, NoAuth } = require('whatsapp-web.js');
 
@@ -9,6 +10,7 @@ const port = process.env.PORT || 3331;
 
 const client = new Client({
     authStrategy: new NoAuth(),
+    ffmpegPath: ffmpeg.path,
     puppeteer: {
         headless: true,
 		args: [
