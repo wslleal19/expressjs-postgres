@@ -14,14 +14,43 @@ const client = new Client({
     puppeteer: {
         headless: true,
 		args: [
-            '--no-sandbox',
-            '--disable-setuid-sandbox',
+            '--autoplay-policy=user-gesture-required',
+            '--disable-background-networking',
+            '--disable-background-timer-throttling',
+            '--disable-backgrounding-occluded-windows',
+            '--disable-breakpad',
+            '--disable-client-side-phishing-detection',
+            '--disable-component-update',
+            '--disable-default-apps',
             '--disable-dev-shm-usage',
-            '--disable-accelerated-2d-canvas',
+            '--disable-domain-reliability',
+            '--disable-extensions',
+            '--disable-features=AudioServiceOutOfProcess',
+            '--disable-gpu',
+            '--disable-hang-monitor',
+            '--disable-ipc-flooding-protection',
+            '--disable-notifications',
+            '--disable-offer-store-unmasked-wallet-cards',
+            '--disable-popup-blocking',
+            '--disable-print-preview',
+            '--disable-prompt-on-repost',
+            '--disable-renderer-backgrounding',
+            // '--disable-setuid-sandbox', // para usuario root
+            '--disable-speech-api',
+            '--disable-sync',
+            '--hide-scrollbars',
+            '--ignore-gpu-blacklist',
+            '--metrics-recording-only',
+            '--mute-audio',
+            '--no-default-browser-check',
             '--no-first-run',
+            '--no-pings',
+            '--no-sandbox',
             '--no-zygote',
-            '--single-process', // <- this one doesn't works in Windows
-            '--disable-gpu'
+            '--password-store=basic',
+            '--use-gl=swiftshader',
+            '--use-mock-keychain',
+
         ],
 	}
 });
